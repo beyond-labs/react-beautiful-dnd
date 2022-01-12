@@ -13,7 +13,7 @@ export default (autoScroller: AutoScroller) => (store: MiddlewareStore) => (
   next: Dispatch,
 ) => (action: Action): any => {
   if (shouldStop(action)) {
-    autoScroller.stop();
+    //autoScroller.stop();
     next(action);
     return;
   }
@@ -26,7 +26,7 @@ export default (autoScroller: AutoScroller) => (store: MiddlewareStore) => (
       state.phase === 'DRAGGING',
       'Expected phase to be DRAGGING after INITIAL_PUBLISH',
     );
-    autoScroller.start(state);
+    //autoScroller.start(state);
     return;
   }
 
@@ -34,5 +34,5 @@ export default (autoScroller: AutoScroller) => (store: MiddlewareStore) => (
   // releasing all actions to the reducer first
   next(action);
 
-  autoScroller.scroll(store.getState());
+  //autoScroller.scroll(store.getState());
 };
