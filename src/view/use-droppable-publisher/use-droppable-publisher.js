@@ -129,6 +129,7 @@ export default function useDroppablePublisher(args: Props) {
       const ref: ?HTMLElement = previous.getDroppableRef();
       invariant(ref, 'Cannot collect without a droppable ref');
       const env: Env = getEnv(ref);
+      env.closestScrollable = undefined;
 
       const dragging: WhileDragging = {
         ref,
